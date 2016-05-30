@@ -73,13 +73,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(nodeEnv) }
-    }),
-    new CopyWebpackPlugin([
-/*
-      { from: `../static/${packageName}`, to: `../components/${packageName}` }, /!* for local server *!/
-      { from: `../static/${packageName}`, to: `../dist/${packageName}` }  /!* dist build *!/
-*/
-    ])
+    })
   ],
   devServer: {
     contentBase: './client'
