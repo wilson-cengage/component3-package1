@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./node_modules/.bin/webpack-dev-server --history-api-fallback --progress --port 3000",
     "build": "node build.js production",
-    "postbuild": "gulp postbuild --packageName component3-package1"
+    "prebuild": "gulp prebuild --packageName $npm_package_name",
+    "postbuild": "gulp postbuild --packageName $npm_package_name"
   },
   "license": "MIT",
   "devDependencies": {
@@ -19,6 +20,7 @@
     "babel-preset-es2015-native-modules": "^6.6.0",
     "babel-preset-react": "^6.5.0",
     "css-loader": "^0.23.1",
+    "del": "^2.2.0",
     "file-loader": "^0.8.5",
     "gulp": "^3.9.1",
     "gulp-param": "^1.0.3",
