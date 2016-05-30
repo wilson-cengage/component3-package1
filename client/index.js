@@ -1,11 +1,11 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 
-import Header from 'components/Header';
+import DropDown from 'components/DropDown';
 
 import 'index.html';
 
 ReactDOM.render(
-  <Header/>,
+  <DropDown/>,
   document.getElementById('root')
 );

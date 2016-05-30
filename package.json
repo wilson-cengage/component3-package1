@@ -1,5 +1,5 @@
 {
-  "name": "component2a",
+  "name": "component3-package1",
   "version": "0.0.5",
   "private": true,
   "description": "Component Sample - React, Webpack 2",
@@ -17,17 +17,19 @@
     "babel-plugin-transform-runtime": "^6.6.0",
     "babel-preset-es2015-native-modules": "^6.6.0",
     "babel-preset-react": "^6.5.0",
+    "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.5",
     "style-loader": "^0.13.0",
     "webpack": "^2.1.0-beta.4",
-    "webpack-dev-server": "^2.0.0-beta"
+    "webpack-dev-server": "^2.0.0-beta",
+    "webpack-shell-plugin": "^0.4.2"
   },
   "dependencies": {
     "babel-runtime": "^6.6.1",
     "es6-promise": "^3.1.2",
-    "lodash": "^4.13.1",
     "react": "^15.0.0-rc.1",
+    "react-bootstrap": "^0.29.4",
     "react-dom": "^15.0.0-rc.1",
     "systemjs": "git+https://github.com/systemjs/systemjs.git"
   }

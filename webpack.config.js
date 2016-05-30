@@ -4,18 +4,20 @@ const path = require('path');
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
 
+const packageName = 'component3-package1';
+
 module.exports = {
   devtool: isProd ? 'hidden-source-map' : 'cheap-eval-source-map',
   context: path.join(__dirname, './client'),
   entry: {
     'index': './index.js',
-    'component2a/component2a': './exports.js'
+    [`${packageName}/${packageName}`]: './exports.js'
   },
   output: {
     path: path.join(__dirname, './static/'),
-    publicPath: '/static/',   /* for bundle chunk lookup during runtime, should eventually be CMP /components/component2a/ */
+    publicPath: '/components/',   /* for bundle chunk lookup during runtime, should eventually be CMP /components/component3-package1/ */
     filename: '[name].js',
-    chunkFilename: 'component2a/component2a-[id].js',
+    chunkFilename: `${packageName}/${packageName}-[id].js`,
     libraryTarget: 'umd'
   },
   externals: {
@@ -71,7 +73,13 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(nodeEnv) }
-    })
+    }),
+    new CopyWebpackPlugin([
+/*
+      { from: `../static/${packageName}`, to: `../components/${packageName}` }, /!* for local server *!/
+      { from: `../static/${packageName}`, to: `../dist/${packageName}` }  /!* dist build *!/
+*/
+    ])
   ],
   devServer: {
     contentBase: './client'
