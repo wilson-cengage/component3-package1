@@ -6,7 +6,7 @@ _nogit
 
 # local server
 static
-components
+/components
 
 # IntelliJ
 .idea
