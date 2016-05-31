@@ -1,31 +1,37 @@
 import React from 'react';
+import Carousel from 'react-bootstrap/lib/Carousel';
 
 import './style.css';
 
-export default class Carousel extends React.Component {
+import carouselImage from './carousel.png';
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            "implementation": null
-        }
-    }
-
-    componentDidMount() {
-        System.import('./implementation').then(implementation => {
-            this.setState({
-                "implementation": implementation.default
-            });
-        });
-    }
+export default class CarouselImplementation extends React.Component {
 
     render() {
-        let implementationContent = null;
-        if (this.state.implementation != null) {
-            implementationContent = <this.state.implementation/>;
-        }
-        return ( <div className="carousel">
-            {implementationContent}
-        </div>);
+        return (
+            <Carousel>
+                <Carousel.Item>
+                    <img width={900} height={500} alt="900x500" src={carouselImage}/>
+                    <Carousel.Caption>
+                        <h3>First slide label</h3>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img width={900} height={500} alt="900x500" src={carouselImage}/>
+                    <Carousel.Caption>
+                        <h3>Second slide label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img width={900} height={500} alt="900x500" src={carouselImage}/>
+                    <Carousel.Caption>
+                        <h3>Third slide label</h3>
+                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+            </Carousel>
+        );
     }
 }

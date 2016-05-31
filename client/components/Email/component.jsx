@@ -1,33 +1,13 @@
 import React from 'react';
+import FormControl from 'react-bootstrap/lib/FormControl';
 
 import './style.css';
 
-export default class Email extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            "implementation": null
-        }
-    }
-
-    componentDidMount() {
-        System.import('./implementation').then(implementation => {
-            this.setState({
-                "implementation": implementation.default
-            });
-        });
-    }
+export default class EmailImplementation extends React.Component {
 
     render() {
-        let implementationContent = null;
-        if (this.state.implementation != null) {
-            implementationContent = <this.state.implementation/>;
-        }
         return (
-            <div>
-                {implementationContent}
-            </div>
+            <FormControl type="email" placeholder="Enter email" />
         );
     }
 }

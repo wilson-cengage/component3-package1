@@ -1,33 +1,19 @@
 import React from 'react';
+import DropdownButton from 'react-bootstrap/lib/DropdownButton';
+import MenuItem from 'react-bootstrap/lib/MenuItem';
 
 import './style.css';
 
-export default class DropDown extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            "implementation": null
-        }
-    }
-
-    componentDidMount() {
-        System.import('./implementation').then(implementation => {
-            this.setState({
-                "implementation": implementation.default
-            });
-        });
-    }
+export default class DropDownImplementation extends React.Component {
 
     render() {
-        let implementationContent = null;
-        if (this.state.implementation != null) {
-            implementationContent = <this.state.implementation/>;
-        }
         return (
-            <div>
-                {implementationContent}
-            </div>
+            <DropdownButton bsStyle="default" title="Friend me please!" id="0000">
+                <MenuItem>G+</MenuItem>
+                <MenuItem>Facebook</MenuItem>
+                <MenuItem>MySpace</MenuItem>
+                <MenuItem>Friendster</MenuItem>
+            </DropdownButton>
         );
     }
 }
