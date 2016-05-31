@@ -48,6 +48,13 @@ module.exports = {
           'babel-loader'
         ]
       },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader',  // inline base64 URLs for <=8k images, direct URLs for the rest
+        query: {
+          limit: 8192
+        }
+      }
     ],
   },
   resolve: {
@@ -73,6 +80,10 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(nodeEnv) }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      children: true,     /** deps shared by chunks are extracted into its own async chunk **/
+      async: true
     })
   ],
   devServer: {
