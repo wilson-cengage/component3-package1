@@ -21,7 +21,6 @@ module.exports = {
     jsonpFunction: `jsonpFunction${jsonpPackageName}`,   /* jsonp function must be unique within the entire cengage universe, so that webpack chunk loaders for each package don't collide */
     chunkFilename: `${packageName}/${packageName}-[id].js`,
     publicPath: '/components/'   /* for bundle chunk lookup during runtime, should eventually be CMP /components/component3-package1/ */
-
   },
   externals: {
     'react': 'React',
