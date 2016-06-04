@@ -21,6 +21,8 @@ $ npm install
 ```
 $ npm start
 ```
+Open browser http://localhost:3000/client/index.html
+
 
 ## Production Build
 
